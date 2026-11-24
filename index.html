@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CiteLab — Learn APA 7 by doing</title>
+<meta name="description" content="CiteLab is a citation laboratory where Egyptian STEM students investigate, construct, and master APA 7th edition references.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B2530'/%3E%3Crect x='5' y='5' width='54' height='54' rx='10' fill='none' stroke='%238FD6A8' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23F2E3A8' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1B2530">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="styles.css?v=20261003-ui2">
+</head>
+<body>
+<div class="app">
+  <!-- ============ LAB RAIL ============ -->
+  <aside class="rail" id="researchRail" aria-label="Primary navigation">
+    <button class="rail-brand" data-nav="home" aria-label="Go to the Lab console">
+      <div class="brand-name">CITELAB</div>
+      <div class="brand-sub">Citation Laboratory · APA 7</div>
+    </button>
+    <nav class="rail-nav" id="railNav" aria-label="Laboratory sections">
+      <div class="rail-label">Laboratory</div>
+      <button class="rail-item" data-nav="home"><span class="idx">00</span><span class="ri"><span class="ri-t">Lab</span><span class="ri-d">Console</span></span><span class="rdot" data-dot="home"></span></button>
+      <button class="rail-item" data-nav="learn"><span class="idx">01</span><span class="ri"><span class="ri-t">Learn</span><span class="ri-d">Learn the rules</span></span><span class="rdot" data-dot="learn"></span></button>
+      <button class="rail-item" data-nav="practice"><span class="idx">02</span><span class="ri"><span class="ri-t">Train</span><span class="ri-d">Train your eye</span></span><span class="rdot" data-dot="practice"></span></button>
+      <button class="rail-item" data-nav="builder"><span class="idx">03</span><span class="ri"><span class="ri-t">Build</span><span class="ri-d">Construct references</span></span><span class="rdot" data-dot="builder"></span></button>
+      <button class="rail-item" data-nav="inspector"><span class="idx">04</span><span class="ri"><span class="ri-t">Inspect</span><span class="ri-d">Analyze mistakes</span></span><span class="rdot" data-dot="inspector"></span></button>
+      <button class="rail-item" data-nav="desk"><span class="idx">05</span><span class="ri"><span class="ri-t">Research</span><span class="ri-d">Work with sources</span></span><span class="rdot" data-dot="desk"></span></button>
+      <button class="rail-item" data-nav="progress"><span class="idx">06</span><span class="ri"><span class="ri-t">Mastery</span><span class="ri-d">See what you know</span></span><span class="rdot" data-dot="progress"></span></button>
+    </nav>
+    <div class="rail-foot">
+      <button class="rail-item" id="btnProfile"><span class="idx">◉</span><span class="ri"><span class="ri-t">Researcher</span></span></button>
+      <button class="rail-item" id="btnSettings"><span class="idx">⚙</span><span class="ri"><span class="ri-t">Instrument</span></span></button>
+      <button class="rail-item" id="btnHelp"><span class="idx">?</span><span class="ri"><span class="ri-t">Field guide</span></span></button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="btn small ghost rail-toggle" id="btnRailToggle" aria-expanded="true" aria-controls="researchRail" title="Hide navigation rail">☰ <span id="railToggleText">Hide nav</span></button>
+      <div>
+        <div class="crumb" id="crumb">CITELAB / LAB CONSOLE</div>
+        <div class="micro" id="topStatus">Deterministic APA 7 ruleset · predictions required · copying teaches nothing</div>
+      </div>
+      <div class="spacer"></div>
+      <span class="tag blue" id="streakTag">STREAK 0</span>
+      <button class="btn small ghost" id="btnTheme" aria-pressed="false" title="Switch to night study lab (T)">☾ Night</button>
+      <button class="btn small" id="btnSearchTop" title="Search CiteLab's knowledge base (Ctrl/⌘ K or /)">⌕ Search</button>
+      <button class="btn small" id="btnDailyTop">Daily specimen ↓</button>
+    </header>
+    <nav class="ethread" id="evidenceThread" aria-label="Evidence chain">
+      <ol>
+        <li><button data-nav="home" data-stage="source" class="active" aria-current="step">Source</button></li>
+        <li><button data-nav="learn" data-stage="evidence">Evidence</button></li>
+        <li><button data-nav="practice" data-stage="claim">Claim</button></li>
+        <li><button data-nav="builder" data-stage="citation">Citation</button></li>
+        <li><button data-nav="desk" data-stage="reference">Reference</button></li>
+        <li><button data-nav="progress" data-stage="understanding">Understanding</button></li>
+      </ol>
+    </nav>
+
+    <!-- ============ 00 LAB ============ -->
+    <section class="view active" id="view-home" aria-label="Lab console">
+      <p class="eyebrow">Citelab · Research console</p>
+      <h1 class="h1">What are you investigating today?</h1>
+      <p class="lede">Learn how evidence becomes trustworthy research. A citation is a specimen: dissect it, predict its structure, build it yourself — and explain every decision. Nothing here rewards copying.</p>
+
+      <div class="specimen-hero">
+        <div class="hero-cite">
+          <p class="eyebrow">Central specimen — citation anatomy</p>
+          <div class="anatomy">
+            <div class="ana-cite">
+              <div class="citation-text hanging" id="homeDNA" role="group" aria-label="Interactive citation example"></div>
+            </div>
+            <div class="ana-map" id="homeScale"></div>
+          </div>
+          <div class="trace" id="homeDnaExplain">
+            <p class="micro">Select a component of the specimen — author, date, title, source — and trace it from raw data, through the APA rule, to the final output.</p>
+          </div>
+          <div class="btn-row">
+            <button class="btn small primary" data-nav="learn">Dissect in Learn →</button>
+            <button class="btn small" data-nav="builder">Rebuild in the workbench →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-banner">
+        <div>
+          <p class="eyebrow">Start with why</p>
+          <h3 class="h3">WHY CITATIONS MATTER</h3>
+          <p class="micro">Follow a claim back to its evidence.</p>
+        </div>
+        <button class="btn primary" data-unit="research">Follow a claim →</button>
+      </div>
+
+      <p class="eyebrow" style="margin-top:20px">Instruments — five ways to work</p>
+
+      <div class="paths">
+        <button class="path path-learn" data-nav="learn">
+          <span class="p-idx">01</span>
+          <span class="p-title">Learn</span>
+          <span class="p-desc">Understand a rule by investigating a real case.</span>
+          <span class="p-go">Open an investigation →</span>
+        </button>
+        <button class="path path-train" data-nav="practice">
+          <span class="p-idx">02</span>
+          <span class="p-ticket"><span>SESSION <strong id="homeSession">01</strong></span><span id="homeAcc">accuracy forming…</span></span>
+          <span class="p-title">Train</span>
+          <span class="p-desc">Solve citation problems. Your error pattern shapes the session.</span>
+          <span class="p-go">Enter the training floor →</span>
+        </button>
+        <button class="path path-build" data-nav="builder">
+          <span class="p-idx">03</span>
+          <span class="p-track"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+          <span class="p-title">Build</span>
+          <span class="p-desc">Construct a reference from raw evidence, piece by piece.</span>
+          <span class="p-go">Enter the workbench →</span>
+        </button>
+        <button class="path path-invest" data-nav="inspector">
+          <span class="p-idx">04</span>
+          <span class="p-specimen mono" id="homeSpecimen">Smith J 2024. Effects of microplastics △ △</span>
+          <span class="p-title">Investigate</span>
+          <span class="p-desc">Find what is wrong. Forensics, not answer keys.</span>
+          <span class="p-go">Open forensics →</span>
+        </button>
+        <button class="path path-research" data-nav="desk">
+          <span class="p-idx">05</span>
+          <span class="p-title">Research</span>
+          <span class="p-desc">Run a STEM mission with real sources and a final inspection.</span>
+          <span class="p-go">Accept a mission →</span>
+        </button>
+      </div>
+
+      <div class="console-grid">
+        <div>
+          <div class="panel-head-row">
+            <p class="eyebrow">Current investigation</p>
+          </div>
+          <div class="investigation">
+            <div>
+              <h2 class="h2" id="weakTitle">Multiple-author references</h2>
+              <p class="micro">You are strong at:</p>
+              <p class="micro" id="weakStrong">✓ —</p>
+              <p class="micro">Still uncertain about:</p>
+              <p class="micro" id="weakUncertain">△ —</p>
+            </div>
+            <div class="invest-cta">
+              <button class="btn primary" id="btnContinueWeak">Continue investigation →</button>
+            </div>
+          </div>
+
+          <div class="panel-head-row">
+            <p class="eyebrow">Field notebook — recent activity</p>
+            <button class="btn small ghost" id="btnClearActivity">Clear</button>
+          </div>
+          <ul class="timeline" id="activityList"></ul>
+        </div>
+
+        <div class="side-stack">
+          <div class="specimen-panel" id="dailyPanel">
+            <p class="eyebrow">The daily specimen · <span id="dailyTimer">60s</span></p>
+            <div class="paper-para specimen-frag" id="dailySpec">Loading…</div>
+            <h3 class="h3" id="dailyQ">Something is wrong here. What would you investigate first?</h3>
+            <div id="dailyOpts" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px"></div>
+            <div id="dailyHints" style="margin-top:8px"></div>
+            <p class="micro" id="dailyMsg" style="margin-top:8px" role="status"></p>
+          </div>
+          <div class="panel">
+            <p class="eyebrow">Research stamps</p>
+            <div class="stamps" id="homeStamps"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 01 LEARN ============ -->
+    <section class="view" id="view-learn" aria-label="Learn">
+      <p class="eyebrow">01 · Learn — investigations, not articles</p>
+      <div class="split learn">
+        <div>
+          <p class="eyebrow">Case files</p>
+          <div class="lesson-index" id="lessonIndex"></div>
+          <div class="panel" style="margin-top:14px">
+            <p class="eyebrow">60-second tricks — find fast</p>
+            <div class="field" style="margin-bottom:8px"><label for="trickFilter">Filter tricks ( / )</label><input id="trickFilter" placeholder="doi, et al., n.d.…" autocomplete="off"></div>
+            <div id="trickList"></div>
+            <div class="btn-row"><button class="btn small ghost" id="btnStudySheet">Print study sheet</button><button class="btn small ghost" data-glossary>Research dictionary</button></div>
+          </div>
+        </div>
+        <div class="read-col">
+          <div id="moduleHead"></div>
+          <h1 class="h1" id="lessonTitle">Journal Articles</h1>
+          <p class="micro mono" id="lessonLevel">INVESTIGATION 01</p>
+          <p class="lede" id="lessonStory"></p>
+          <p class="micro" id="lessonObj" style="margin-top:-8px"></p>
+          <div class="lesson-progress" id="lessonProgress" aria-label="Investigation progress"></div>
+          <div id="lessonStages"></div>
+        </div>
+        <div id="learnInspectorCol">
+          <div class="panel rule-panel">
+            <div class="panel-head">
+              <p class="eyebrow" style="margin:0">⌖ Rule inspector</p>
+              <button class="btn small ghost" id="btnInspectorToggle" aria-expanded="true" aria-controls="ruleInspector" title="Hide rule inspector">Hide</button>
+            </div>
+            <div id="ruleInspector"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 TRAIN ============ -->
+    <section class="view" id="view-practice" aria-label="Train">
+      <p class="eyebrow">02 · Train — the training floor</p>
+      <div class="session-head">
+        <div><span class="mono micro">SESSION <strong id="sessionNo">01</strong> · </span><span class="micro" id="sessionSkill">Journal articles</span></div>
+        <div><span class="mono micro" id="chCount">Challenge 1 / 7</span> · <span class="tag blue" id="chDiff">BEGINNER</span></div>
+      </div>
+      <h1 class="h1" id="chTitle">CHALLENGE 01</h1>
+      <div id="warmupBox" style="margin-bottom:12px"></div>
+      <div class="split two">
+        <div>
+          <p class="eyebrow">Evidence packet — identify, then construct</p>
+          <div class="evidence-tray" id="chEvidence"></div>
+          <div id="chFields" style="margin-top:12px"></div>
+          <div class="btn-row workspace-actions" id="chActions">
+            <button class="btn small ghost" id="btnChHint">Hint</button>
+            <span style="flex:1"></span>
+            <button class="btn small" id="btnChPrev">← Prev</button>
+            <button class="btn small" id="btnChNext">Next →</button>
+            <button class="btn primary" id="btnChCheck">Inspect reference</button>
+          </div>
+          <div id="chHints" style="margin-top:8px"></div>
+          <div class="predict-box" style="margin-top:12px">
+            <p class="eyebrow">Order drill — snap components into APA order</p>
+            <div class="drop-zone" id="repairDrop"></div>
+            <div class="note-grid" id="repairPool" style="margin-top:8px"></div>
+            <p class="micro" id="repairMsg" role="status"></p>
+            <div class="btn-row"><button class="btn small" id="btnRepairReset">Reshuffle pieces</button><button class="btn small green" id="btnRepairCheck">Lock &amp; verify</button></div>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Your reference as it would appear</p>
+          <div class="anatomy">
+            <div class="ana-cite scanline" id="chScan">
+              <div class="citation-text hanging" id="chPreview"><span class="micro">Identify the evidence, then construct — your reference assembles here.</span></div>
+            </div>
+            <div class="ana-map" id="chScale"></div>
+          </div>
+          <div id="chResult" style="margin-top:12px"></div>
+          <div class="btn-row">
+            <button class="btn small ghost" id="btnChReveal">Reveal the correction</button>
+            <button class="btn small" id="btnChSave">Archive reference</button>
+          </div>
+          <div id="chExpected" style="display:none;margin-top:10px"></div>
+          <div class="accuracy" style="margin-top:14px">
+            <p class="eyebrow">Your current accuracy pattern</p>
+            <div id="accuracyPattern"></div>
+          </div>
+          <div class="mistakes" style="margin-top:14px">
+            <p class="eyebrow">Mistake memory — rules to revisit</p>
+            <div id="mistakeMemory"></div>
+            <div id="drillBox" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split two" style="margin-top:18px">
+        <div>
+          <p class="eyebrow">In-text application — place the pointer inside real writing</p>
+          <div class="paper-para" id="intextPara"></div>
+          <div class="btn-row"><button class="btn small" id="btnIntextPrev">← Prev passage</button><button class="btn small" id="btnIntextNext">Next passage →</button></div>
+        </div>
+        <div>
+          <p class="eyebrow">Source evidence</p>
+          <div class="evidence" id="intextEvidence"></div>
+          <p class="eyebrow" style="margin-top:12px">Citation voice</p>
+          <div class="btn-row" style="margin-top:0">
+            <button class="btn small tab active" id="btnParen">Parenthetical</button>
+            <button class="btn small tab" id="btnNarr">Narrative</button>
+          </div>
+          <div id="intextChoices" style="display:flex;flex-direction:column;gap:6px;margin-top:10px"></div>
+          <p class="micro" id="intextMsg" role="status"></p>
+          <div class="predict-box" style="margin-top:12px">
+            <p class="eyebrow">Citation or not? — judgment drill</p>
+            <div id="judgeBox"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 BUILD ============ -->
+    <section class="view" id="view-builder" aria-label="Build">
+      <p class="eyebrow">03 · Build — citation workbench: construct from raw evidence</p>
+      <h1 class="h1">Evidence in. Structure out.</h1>
+      <p class="eyebrow" style="margin-top:14px">Exhibit — source type</p>
+      <div class="source-tabs" id="sourceTabs" role="tablist" aria-label="Source types"></div>
+      <div class="mobile-steps" role="tablist" aria-label="Workbench steps">
+        <button class="tab active" data-wstep="ev">Source</button>
+        <button class="tab" data-wstep="build">↓ Build</button>
+        <button class="tab" data-wstep="logic">↓ Inspect</button>
+      </div>
+      <div class="split workbench">
+        <div class="panel wsp-ev">
+          <p class="eyebrow">Evidence — raw source information</p>
+          <div id="builderFields"></div>
+        </div>
+        <div class="panel wsp-build">
+          <p class="eyebrow">Construction zone — place the next piece</p>
+          <div class="construct-track" id="constructTrack" aria-label="Placed components in order"></div>
+          <div class="note-grid" id="constructPool" style="margin-top:8px"></div>
+          <p class="micro" id="constructMsg" role="status"></p>
+          <div class="ana-cite" style="margin-top:10px"><div class="citation-text hanging" id="builderDNA"></div></div>
+          <div class="ana-map" id="builderScale" style="border-top:1px solid var(--line)"></div>
+          <div class="btn-row">
+            <button class="btn small primary" id="btnBuilderCopy">Copy reference</button>
+            <button class="btn small" id="btnBuilderSave">Archive reference</button>
+            <button class="btn small ghost" data-nav="inspector">Send to forensics →</button>
+          </div>
+          <p class="micro" id="copyHint" role="status" style="margin-top:6px">Build the structure before copying.</p>
+          <p class="micro" id="builderWarn" style="margin-top:8px"></p>
+          <div class="btn-row"><button class="btn small ghost" id="btnBlindMode">Blind build: hide field labels</button></div>
+        </div>
+        <div class="panel rule-panel wsp-logic">
+          <p class="eyebrow">⌖ APA logic — only what you just touched</p>
+          <div id="builderInspector"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 INSPECT ============ -->
+    <section class="view" id="view-inspector" aria-label="Inspect">
+      <p class="eyebrow">04 · Inspect — reference forensics: diagnose errors</p>
+      <h1 class="h1">Every error leaves a trace.</h1>
+      <div class="panel">
+        <div class="field"><label for="repairInput">Exhibit — paste a suspect citation</label>
+        <textarea id="repairInput" placeholder="e.g. Smith J 2025 climate change journal, vol 14, pages 31-44">Smith J 2024. Effects of microplastics. Environmental Science, 14(2), 31-44.</textarea></div>
+        <div class="btn-row" style="margin-top:0">
+          <button class="btn primary" id="btnRepairRun">◉ Investigate</button>
+          <button class="btn ghost" id="btnShowFix" disabled>Reveal the correction</button>
+          <button class="btn" id="btnRepairSample">Load damaged sample</button>
+          <button class="btn ghost" id="btnRepairClear">Clear bench</button>
+        </div>
+        <p class="micro" id="showFixHint" role="status" style="margin-top:8px">Reconstruct the reference first — place at least one fragment.</p>
+      </div>
+      <div class="split repair" style="margin-top:12px">
+        <div class="panel"><p class="eyebrow">Exhibit — as found</p><div class="paper-para" id="repLeft">—</div><div class="exhibit-meta" id="repExMeta" style="display:none"></div><div class="field-map" id="repFieldMap" style="display:none"></div></div>
+        <div class="panel"><p class="eyebrow">Structural check</p><div id="repCenter"><p class="micro">Investigate to open the case report.</p></div></div>
+        <div class="panel"><p class="eyebrow">Case report — findings</p>
+        <div class="report-index" id="repReportIndex">
+          <div class="ri-row" data-ri="1"><span class="ri-no">01</span><span class="ri-t">Findings</span><span class="ri-st">sealed</span></div>
+          <div class="ri-row" data-ri="2"><span class="ri-no">02</span><span class="ri-t">Rule traces</span><span class="ri-st">sealed</span></div>
+          <div class="ri-row" data-ri="3"><span class="ri-no">03</span><span class="ri-t">Before / after</span><span class="ri-st">sealed</span></div>
+          <div class="ri-row" data-ri="4"><span class="ri-no">04</span><span class="ri-t">Archive to desk</span><span class="ri-st">locked</span></div>
+        </div>
+        <div id="repFindings"><p class="micro">No findings yet.</p></div>
+        <div class="btn-row"><button class="btn small" id="btnRepSave">Archive corrected → desk</button></div></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <p class="eyebrow">Reconstruction lab — rebuild the fragments yourself first</p>
+        <p class="micro">Fragments from your exhibit, shuffled. Place them in APA order <em>before</em> revealing the correction.</p>
+        <div class="drop-zone" id="reconTrack" aria-label="Your reconstruction"></div>
+        <div class="note-grid" id="reconPool" style="margin-top:8px"></div>
+        <p class="micro" id="reconMsg" role="status"></p>
+        <div class="btn-row"><button class="btn small" id="btnReconReset">Reshuffle</button><button class="btn small primary" id="btnReconCheck">Compare with APA structure</button></div>
+        <div class="diff" id="reconCompare" style="margin-top:10px;display:none"></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <p class="eyebrow">Before / After — every change is inspectable</p>
+        <div class="diff" id="repDiff"><div class="diff-row"><div class="dl">STATUS</div><div class="dv micro">No investigation yet.</div></div></div>
+        <div class="dna-wrap" style="margin-top:10px;display:none" id="repFixedWrap"><div class="dna-paper"><div class="citation-text hanging" id="repRight">—</div></div><div class="dna-scale" id="repScale"></div></div>
+      </div>
+
+      <div class="split two" style="margin-top:18px">
+        <div class="panel">
+          <div class="panel-head"><h3 class="h3" id="detTitle">Case file 01</h3><span class="tag amber" id="detScore">FOUND 0/2</span></div>
+          <p class="micro">A suspicious citation reached the journal. <strong>Click the structural faults.</strong></p>
+          <div class="paper-para" id="detCite" style="margin-top:10px"></div>
+          <p class="micro" id="detMsg" role="status" style="margin-top:8px"></p>
+          <div class="btn-row"><button class="btn small" id="btnDetPrev">← Prev case</button><button class="btn small" id="btnDetNext">Next case →</button><button class="btn small ghost" id="btnDetReset">Reopen case</button></div>
+        </div>
+        <div class="panel"><p class="eyebrow">Investigation log</p><ul class="check-list" id="detLog"></ul></div>
+      </div>
+    </section>
+
+    <!-- ============ 05 RESEARCH ============ -->
+    <section class="view" id="view-desk" aria-label="Research">
+      <p class="eyebrow">05 · Research — missions, notebook, archive</p>
+      <h1 class="h1">Do real work with real sources.</h1>
+      <div class="tabs" role="tablist" aria-label="Research tabs">
+        <button class="tab active" data-dtab="stem">Missions</button>
+        <button class="tab" data-dtab="desk">Notebook</button>
+        <button class="tab" data-dtab="refs">Archive</button>
+        <button class="tab" data-dtab="researcher">Researcher</button>
+        <button class="tab" data-dtab="sources">Source explorer</button>
+        <button class="tab" data-dtab="teacher">Teacher</button>
+      </div>
+
+      <div class="subview active" id="dtab-stem">
+        <div class="tabs" id="stemTabs"></div>
+        <div id="stemBody"></div>
+      </div>
+
+      <div class="subview" id="dtab-desk">
+        <div class="split two">
+          <div class="panel">
+            <div class="panel-head"><h3 class="h3">Pinned rules &amp; notes</h3><div class="btn-row" style="margin:0"><button class="btn small ghost" data-glossary>Dictionary</button><button class="btn small ghost" id="btnAddNote">+ Add note</button></div></div>
+            <div id="notebookList"></div>
+            <p class="eyebrow" style="margin-top:14px">Rules to revisit</p>
+            <div id="revisitList"></div>
+          </div>
+          <div class="panel">
+            <p class="eyebrow">Rules I keep forgetting</p>
+            <h3 class="h3" id="deskWeak">—</h3>
+            <p class="micro">Drawn from your mistake memory. Select one to drill it now.</p>
+            <div class="btn-row"><button class="btn small primary" id="btnDeskPractice">Train this rule →</button></div>
+            <div style="margin-top:12px"><p class="eyebrow">Recent sources</p><div id="deskSources"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subview" id="dtab-refs">
+        <div class="panel">
+          <div class="panel-head">
+            <h3 class="h3">Research archive — your collection</h3>
+            <div class="btn-row" style="margin:0">
+              <button class="btn small" id="btnSortRefs">Sort A–Z</button>
+              <button class="btn small" id="btnCheckRefs">Final inspection</button>
+              <button class="btn small ghost" id="btnExportRefs">Export .txt</button>
+            </div>
+          </div>
+          <div class="graph-wrap">
+            <p class="eyebrow">Collection graph — select a source</p>
+            <svg id="researchGraph" viewBox="0 0 560 220" role="group" aria-label="Source relationship graph"></svg>
+          </div>
+          <div id="graphDetail" style="margin-top:8px"></div>
+          <div id="refsList" style="margin-top:8px"></div>
+          <div id="refsReport" style="margin-top:10px"></div>
+        </div>
+      </div>
+
+      <div class="subview" id="dtab-researcher">
+        <div id="researcherBody"></div>
+      </div>
+
+      <div class="subview" id="dtab-sources">
+        <div class="srcx-head">
+          <div>
+            <p class="eyebrow">Source type explorer</p>
+            <h1 class="h1" style="margin:0">Not all sources behave the same.</h1>
+            <p class="lede" style="margin-top:6px">APA changes shape with the source. Open any node to see what that type <em>is</em>, when it earns its place, what it must supply, and what claim it can honestly carry.</p>
+          </div>
+          <div class="srcx-compare-box">
+            <p class="eyebrow">Compare two types</p>
+            <div class="field" style="margin:0"><label for="srcxA" class="sr-only">First source type</label><select id="srcxA"></select></div>
+            <p class="micro" style="text-align:center;margin:2px 0" aria-hidden="true">vs</p>
+            <div class="field" style="margin:0"><label for="srcxB" class="sr-only">Second source type</label><select id="srcxB"></select></div>
+          </div>
+        </div>
+        <div class="tax-wrap">
+          <svg id="srcTaxonomy" viewBox="0 0 760 348" role="group" aria-label="Source type taxonomy: every source belongs to one of four families"></svg>
+        </div>
+        <div class="srcx-compare-out" id="srcxCompare" style="display:none"></div>
+        <div class="srcx-body">
+          <div class="srcx-list" id="srcxList" role="tablist" aria-label="Source types"></div>
+          <div class="srcx-detail" id="srcxDetail"></div>
+        </div>
+      </div>
+
+      <div class="subview" id="dtab-teacher">
+        <div class="panel">
+          <div class="panel-head"><h3 class="h3">Teacher Mode — class rule map</h3><span class="tag">NO SURVEILLANCE · AGGREGATE ONLY</span></div>
+          <div class="split two">
+            <div>
+              <div class="field"><label for="className">Class name</label><input id="className" value="STEM 11-A · Research Writing"></div>
+              <div class="btn-row"><button class="btn small primary" id="btnClassReport">Map the class</button></div>
+              <div id="classReport" style="margin-top:10px"></div>
+            </div>
+            <div>
+              <p class="eyebrow">What to reteach</p>
+              <div id="reteachGuide"></div>
+              <p class="eyebrow" style="margin-top:12px">Reading guide</p>
+              <p class="micro"><span class="mstate m">✓ STABLE</span> demonstrated across contexts · <span class="mstate d">△ DEVELOPING</span> seen, not yet stable · <span class="mstate r">! NEEDS ATTENTION</span> repeated slips · <span class="mstate n">— NOT INTRODUCED</span> no evidence yet. Aggregate only — never individual surveillance.</p>
+              <p class="eyebrow" style="margin-top:12px">Class signals (derived from this device's training)</p>
+              <div id="classSignals"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 MASTERY ============ -->
+    <section class="view" id="view-progress" aria-label="Mastery">
+      <p class="eyebrow">06 · Mastery — research mastery: see what you actually know</p>
+      <h1 class="h1">Evidence, not points.</h1>
+      <p class="lede">A skill is <strong>mastered</strong> only after repeated success in different contexts — including transfer. Everything below is derived from your recorded evidence.</p>
+      <div class="split two">
+        <div>
+          <div class="panel">
+            <p class="eyebrow">Skill map</p>
+            <div class="skill-tree" id="skillTree" aria-label="Skill map"></div>
+          </div>
+          <div class="panel" style="margin-top:12px">
+            <p class="eyebrow">Mastery ledger — state + evidence</p>
+            <div id="skillBars"></div>
+          </div>
+        </div>
+        <div class="side-stack">
+          <div class="panel" id="dossierPanel"><p class="eyebrow">Skill dossier — select a skill in the map</p><div id="skillDossier"><p class="micro">Select any skill node on the left to inspect its evidence, contexts, transfer record, related rules, and next review.</p></div></div>
+          <div class="panel"><p class="eyebrow">Research stamps — demonstrated competencies</p><div class="stamps" id="stampWall"></div>
+          <p class="micro" style="margin-top:8px">Stamps are awarded for evidence across contexts — never for clicking around.</p></div>
+          <div class="panel"><p class="eyebrow">Learning journey</p><ul class="timeline" id="progressTimeline"></ul></div>
+          <div class="panel"><div class="btn-row" style="margin-top:0"><button class="btn small" id="btnResetProgress">Reset all progress</button><button class="btn small ghost" id="btnExportProgress">Export progress</button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span><strong>CiteLab</strong> · Research literacy laboratory — APA 7 as its core system.</span>
+      <span>Deterministic APA 7 ruleset — corrections always cite a rule.</span>
+      <span>Built for Egyptian STEM students · Capstone-ready.</span>
+    </footer>
+  </div>
+</div>
+
+<!-- Bottom nav (mobile) -->
+<nav class="bottomnav" aria-label="Mobile navigation">
+  <button data-nav="home" class="active" aria-label="Lab console">⌂<span>LAB</span></button>
+  <button data-nav="learn" aria-label="Learn the rules">◉<span>LEARN</span></button>
+  <button data-nav="practice" aria-label="Train your eye">✎<span>TRAIN</span></button>
+  <button data-nav="builder" aria-label="Build references">⚒<span>BUILD</span></button>
+  <button data-nav="inspector" aria-label="Inspect mistakes">⌖<span>INSPECT</span></button>
+  <button data-nav="desk" aria-label="Research with sources">▤<span>DESK</span></button>
+  <button data-nav="progress" aria-label="Mastery map">◈<span>MAP</span></button>
+</nav>
+
+<!-- First-use overlay -->
+<div class="modal-back" id="onboardBack">
+  <div class="modal onboard" role="dialog" aria-modal="true" aria-labelledby="onboardTitle">
+    <p class="eyebrow">First day in the lab</p>
+    <h2 class="h2" id="onboardTitle">Let's inspect a citation.</h2>
+    <div id="onboardBody"></div>
+    <div class="btn-row"><button class="btn ghost small" id="btnOnboardSkip">Skip intro</button></div>
+  </div>
+</div>
+
+<!-- Modals -->
+<div class="modal-back" id="videoTheater" role="dialog" aria-modal="true" aria-label="Module video theater">
+  <div class="theater-box">
+    <div class="theater-head">
+      <p class="eyebrow" style="margin:0" id="theaterTitle">Module intro</p>
+      <button class="btn small" id="btnTheaterClose">✕ Close (Esc)</button>
+    </div>
+    <div class="theater-stage" id="videoStage"></div>
+    <p class="micro" id="theaterNote" style="margin-top:8px"></p>
+  </div>
+</div>
+<div class="modal-back" id="modalBack">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <p class="eyebrow" id="modalKicker">CiteLab</p>
+    <h2 class="h2" id="modalTitle">—</h2>
+    <div id="modalBody"></div>
+    <div class="btn-row"><button class="btn primary" id="modalClose">Close</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div id="studySheet" aria-label="Printable APA study sheet"></div>
+
+<script src="engine.js?v=20261003-ui2"></script>
+<script src="curriculum-a.js?v=20261003-ui2"></script>
+<script src="curriculum-b.js?v=20261003-ui2"></script>
+<script src="ui.js?v=20261003-ui2"></script>
+<script src="app.js?v=20261003-ui2"></script>
+</body>
+</html>
